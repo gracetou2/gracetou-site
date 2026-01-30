@@ -1,0 +1,145 @@
+/* Minimal Gallery Theme */
+:root {
+    --primary-color: #333;
+    --accent-color: #555;
+    --bg-color: #fff;
+    --light-bg: #f9f9f9;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header */
+header {
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.shop-link {
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.shop-link:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--light-bg);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 1rem 2rem;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+/* Featured */
+.featured {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.featured h2 {
+    font-weight: 300;
+    margin-bottom: 3rem;
+}
+
+.art-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.art-card {
+    max-width: 400px;
+    text-align: left;
+}
+
+.art-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.art-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.art-card p {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid #eee;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.socials {
+    margin-top: 1rem;
+}
+
+.socials a {
+    margin: 0 0.5rem;
+    color: #555;
+}
