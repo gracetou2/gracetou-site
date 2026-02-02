@@ -1,145 +1,345 @@
-/* Minimal Gallery Theme */
+/* Luminous Watercolor Theme - Mobile First Bento Grid */
+
 :root {
-    --primary-color: #333;
-    --accent-color: #555;
-    --bg-color: #fff;
-    --light-bg: #f9f9f9;
+    /* Palette from research */
+    --bg-color: #faf9f6; /* Off-white / Watercolor paper */
+    --text-color: #333333;
+    --accent-teal: #4A8C94; /* Healing/Water */
+    --accent-gold: #D4AF37; /* Light/Hope */
+    --accent-gold-hover: #b5952f;
+    --dark-overlay: rgba(0, 0, 0, 0.6);
+    --card-bg: #ffffff;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.1);
+    
+    /* Fonts */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: var(--primary-color);
+    font-family: var(--font-body);
     background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
 }
 
 a {
     text-decoration: none;
     color: inherit;
+    transition: all 0.2s ease;
+}
+
+/* App Shell Container */
+.app-shell {
+    max-width: 600px; /* Limits width for "App" feel on desktop */
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 50px rgba(0,0,0,0.05);
 }
 
 /* Header */
-header {
-    padding: 1rem 2rem;
-    border-bottom: 1px solid #eee;
+.main-header {
+    text-align: center;
+    padding: 2rem 1.5rem 1.5rem;
+    background: #fff;
+}
+
+.logo-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.site-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tagline {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.verse-ref {
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--accent-teal);
+    display: block;
+    margin-top: 0.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+}
+
+/* Card General Style */
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Hero Carousel Card - Spans full width */
+.hero-card {
+    grid-column: span 2;
+    padding: 0; /* Image goes edge to edge */
+    aspect-ratio: 16/10;
+    background: #000;
+}
+
+/* Welcome Card - Spans full width */
+.welcome-card {
+    grid-column: span 2;
+    text-align: center;
+    border-left: 5px solid var(--accent-gold);
+}
+
+.text-link {
+    color: var(--accent-teal);
+    font-weight: 700;
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+/* Shop Card - Spans full width, background image */
+.shop-card {
+    grid-column: span 2;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    aspect-ratio: 2/1;
+    align-items: center;
+}
+
+.shop-content {
+    position: relative;
+    z-index: 2;
+}
+
+.shop-card h3 {
+    font-size: 1.8rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 0.2rem;
+}
+
+.shop-card p {
+    margin: 0 0 1rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.btn-gold {
+    background-color: var(--accent-gold);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-gold:hover {
+    background-color: var(--accent-gold-hover);
+}
+
+/* Events Card */
+.events-card {
+    grid-column: span 2;
+    border-top: 4px solid var(--accent-teal);
+}
+
+.event-item {
+    background: #f4f4f4;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
+.event-date {
+    font-weight: 700;
+    color: var(--accent-teal);
+}
+
+.small-text {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 0.5rem;
+}
+
+/* Social Cards */
+.social-card {
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.social-card .icon {
     font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links li a {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.shop-link {
-    border: 1px solid var(--primary-color);
-    padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
-}
-
-.shop-link:hover {
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-}
-
-/* Hero */
-.hero {
-    text-align: center;
-    padding: 4rem 2rem;
-    background-color: var(--light-bg);
-}
-
-.hero h1 {
-    font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    font-weight: 300;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--accent-color);
-    margin-bottom: 2rem;
-}
-
-.cta-button {
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-    padding: 1rem 2rem;
-    display: inline-block;
-    letter-spacing: 1px;
-}
-
-/* Featured */
-.featured {
-    padding: 4rem 2rem;
-    text-align: center;
-}
-
-.featured h2 {
-    font-weight: 300;
-    margin-bottom: 3rem;
-}
-
-.art-grid {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-.art-card {
-    max-width: 400px;
-    text-align: left;
-}
-
-.art-card img {
-    width: 100%;
-    height: auto;
     display: block;
-    margin-bottom: 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-.art-card h3 {
-    margin: 0;
-    font-size: 1.1rem;
-}
-
-.art-card p {
-    color: var(--accent-color);
-    font-size: 0.9rem;
-}
+.facebook .icon { color: #1877F2; }
+.youtube .icon { color: #FF0000; }
+.instagram .icon { color: #E4405F; }
+.x-social .icon { color: #000; }
 
 /* Footer */
 footer {
-    padding: 2rem;
     text-align: center;
-    border-top: 1px solid #eee;
+    padding: 2rem;
     font-size: 0.8rem;
-    color: #999;
+    color: #888;
+    background: #f0f0f0;
+    margin-top: auto;
 }
 
-.socials {
-    margin-top: 1rem;
+.footer-verse {
+    font-style: italic;
+    margin-top: 0.5rem;
 }
 
-.socials a {
-    margin: 0 0.5rem;
-    color: #555;
+/* Carousel Styles */
+.carousel {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.carousel-track-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.carousel-track {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    height: 100%;
+    transition: transform 250ms ease-in;
+}
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+.carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 2rem 1.5rem 1rem;
+}
+.carousel-caption h3 { margin-bottom: 0.2rem; font-size: 1.4rem; }
+.carousel-caption p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.7);
+    border: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    color: #333;
+    font-weight: bold;
+}
+.carousel-button--left { left: 10px; }
+.carousel-button--right { right: 10px; }
+.is-hidden { display: none; }
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 10px; /* moved up slightly to sit on image if needed, or adjust */
+    right: 15px;
+    z-index: 10;
+}
+.carousel-indicator {
+    border: 0;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 4px;
+    cursor: pointer;
+}
+.carousel-indicator.current-slide { background: var(--accent-gold); }
+
+/* Responsive tweaks */
+@media (min-width: 600px) {
+    .app-shell {
+        margin: 2rem auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
 }

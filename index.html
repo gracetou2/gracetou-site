@@ -3,46 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grace to U Art | Pastor John Billoweth</title>
+    <title>Grace to U Art | Pastor John Biloweth</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Grace to U Art</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#" class="shop-link">Shop Art</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section class="hero">
-            <h1>Original Art by Pastor John Billoweth</h1>
-            <p>Exploring faith and beauty through color and texture.</p>
-            <a href="#" class="cta-button">Visit the Gallery Store</a>
-        </section>
-
-        <section class="featured">
-            <h2>Featured Work</h2>
-            <div class="art-grid">
-                <!-- Placeholder for the uploaded image -->
-                <div class="art-card">
-                    <img src="1.jpg" alt="Featured Original Painting" onerror="this.src='https://placehold.co/600x400?text=Art+Coming+Soon'">
-                    <h3>Latest Creation</h3>
-                    <p>One-of-a-kind original.</p>
-                </div>
+    <div class="app-shell">
+        
+        <!-- Header / Logo Area -->
+        <header class="main-header">
+            <div class="logo-container">
+                <img src="assets/images/logo5.jpg" alt="Grace to U Logo" class="site-logo">
             </div>
-        </section>
-    </main>
+            <p class="tagline">"The light shines in the darkness, and the darkness has not overcome it." <span class="verse-ref">- John 1:5</span></p>
+        </header>
 
-    <footer>
-        <p>&copy; 2026 Grace to U Art. All rights reserved.</p>
-        <div class="socials">
-            <a href="https://www.facebook.com/profile.php?id=100095277582403" target="_blank">Facebook</a>
-        </div>
-    </footer>
+        <!-- Main Content Grid (Bento Style) -->
+        <main class="bento-grid">
+
+            <!-- Hero Carousel Block -->
+            <section class="card hero-card">
+                <div class="carousel">
+                    <div class="carousel-track-container">
+                        <ul class="carousel-track">
+                            <li class="carousel-slide current-slide">
+                                <img src="assets/images/work1.jpg" alt="Dramatic Sky Painting" class="carousel-image">
+                                <div class="carousel-caption">
+                                    <h3>Hope of Glory</h3>
+                                    <p>Light breaking through the storm.</p>
+                                </div>
+                            </li>
+                            <li class="carousel-slide">
+                                <img src="assets/images/exhibit3.jpg" alt="Art Prints and Cards" class="carousel-image">
+                                <div class="carousel-caption">
+                                    <h3>Gifts & Cards</h3>
+                                    <p>Share encouragement with others.</p>
+                                </div>
+                            </li>
+                            <li class="carousel-slide">
+                                <img src="assets/images/exhibit1.jpg" alt="Grace to U Exhibit" class="carousel-image">
+                                <div class="carousel-caption">
+                                    <h3>Community Events</h3>
+                                    <p>Bringing art to local markets.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="carousel-button carousel-button--left is-hidden"><</button>
+                    <button class="carousel-button carousel-button--right">></button>
+                    
+                    <div class="carousel-nav">
+                        <button class="carousel-indicator current-slide"></button>
+                        <button class="carousel-indicator"></button>
+                        <button class="carousel-indicator"></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Intro / Welcome Block -->
+            <section class="card welcome-card">
+                <h2>Welcome</h2>
+                <p><strong>Grace to U</strong> is the art ministry of Pastor John A. Bilowith. Here, watercolor meets the Word—offering a visual reminder that God's light is always present, even in the shadows.</p>
+                <a href="about.html" class="text-link">Meet Pastor John &rarr;</a>
+            </section>
+
+            <!-- Shop Action Block -->
+            <section class="card shop-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('assets/images/exhibit3.jpg');">
+                <div class="shop-content">
+                    <h3>Visit the Store</h3>
+                    <p>Originals • Prints • Gifts</p>
+                    <small>Inventory moves fast at events!</small>
+                    <a href="#" class="btn btn-gold">Shop Online</a>
+                </div>
+            </section>
+
+            <!-- Events Block -->
+            <section class="card events-card">
+                <h3>Where We Are</h3>
+                <div class="event-item">
+                    <span class="event-date">Upcoming</span>
+                    <span class="event-desc">Check back for 2026 Schedule</span>
+                </div>
+                <p class="small-text">Follow us on Facebook for live updates from craft fairs and church events.</p>
+            </section>
+
+            <!-- Social Media Bento Blocks -->
+            <a href="https://www.facebook.com/john.a.bilowith" target="_blank" class="card social-card facebook">
+                <span class="icon">f</span>
+                <span>Facebook</span>
+            </a>
+            <a href="https://www.youtube.com/@johnbilowith" target="_blank" class="card social-card youtube">
+                <span class="icon">▶</span>
+                <span>YouTube</span>
+            </a>
+            <a href="https://www.instagram.com/johna.bilowith/" target="_blank" class="card social-card instagram">
+                <span class="icon">camera</span>
+                <span>Instagram</span>
+            </a>
+             <a href="https://x.com/jbilowith?s=11" target="_blank" class="card social-card x-social">
+                <span class="icon">X</span>
+                <span>Twitter/X</span>
+            </a>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Grace to U Art. All rights reserved.</p>
+            <p class="footer-verse">"The Lord is my strength and my shield..." - Psalm 28:7</p>
+        </footer>
+
+    </div>
+
 </body>
 </html>
