@@ -56,17 +56,18 @@ a {
 /* Header */
 .main-header {
     text-align: center;
-    padding: 2rem 1.5rem 1.5rem;
+    padding: 1rem 1rem 1.5rem; /* Reduced top padding */
     background: #fff;
 }
 
 .logo-container {
-    width: 120px;
-    height: 120px;
+    width: 100%; /* Changed from fixed 120px to 100% */
+    max-width: 500px; /* Cap width for very large screens */
     margin: 0 auto 1rem;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-soft);
+    aspect-ratio: 4/1; /* Force 4:1 aspect ratio for the banner */
 }
 
 .site-logo {
