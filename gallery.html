@@ -3,40 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | Grace to U Art</title>
+    <meta name="description" content="Grace to U - Specialized art designs and crafts gallery by John Bilowith">
+    <title>Gallery | Grace to U</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="app-shell">
-        
-        <header class="main-header">
-             <a href="index.html" class="text-link" style="margin: 0; float: left; position: relative; z-index: 10;">&larr; Back</a>
-            <div class="logo-container">
-                <img src="assets/images/logo5.jpg" alt="Grace to U Logo" class="site-logo">
-            </div>
-            <h2>Art Gallery</h2>
-        </header>
+    <!-- Header Section -->
+    <header>
+        <div class="logo-container">
+            <img src="assets/logo-banner.jpg" alt="Grace to U Banner" class="banner-logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <main class="bento-grid">
-            
-            <section class="card" style="grid-column: span 2; text-align: center; padding: 3rem;">
-                <i class="fas fa-paint-brush" style="font-size: 3rem; color: var(--accent-gold); margin-bottom: 1rem;"></i>
-                <h3>Coming Soon</h3>
-                <p>We are currently curating a digital collection of Pastor John's watercolor works.</p>
-                <p>Please check back shortly or visit our Square store for available pieces.</p>
-                 <a href="https://grace-to-you.square.site" target="_blank" class="btn btn-gold" style="margin-top: 1rem;">Visit Store</a>
-            </section>
+    <!-- Main Content -->
+    <main>
+        <section class="gallery-hero">
+            <h1>Art Collection</h1>
+            <p>Explore the unique handcrafted designs by John Bilowith.</p>
+        </section>
 
-        </main>
+        <!-- Masonry Gallery Container -->
+        <div class="gallery-container" id="gallery-grid">
+            <!-- Images injected via script.js -->
+        </div>
 
-        <footer>
-            <p>&copy; 2026 Grace to U Art.</p>
-        </footer>
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox">
+            <span class="close-btn">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <div class="caption" id="caption"></div>
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+    </main>
 
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="year"></span> Grace to U. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/john.a.bilowith" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/johna.bilowith" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@johnbilowith" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://x.com/jbilowith?s=11" target="_blank"><i class="fab fa-twitter"></i></a> <!-- X logo fallback to twitter icon usually works or use fa-x-twitter if available -->
+        </div>
+    </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
