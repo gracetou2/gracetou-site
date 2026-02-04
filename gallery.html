@@ -14,12 +14,15 @@
     <!-- Header Section -->
     <header>
         <div class="logo-container">
-            <img src="assets/logo-banner.jpg" alt="Grace to U Banner" class="banner-logo">
+            <!-- Fixed Banner Image Path -->
+            <img src="assets/images/logo5.jpg" alt="Grace to U Banner" class="banner-logo">
         </div>
         <nav>
             <ul>
+                <!-- Reordered Navigation: Home, Gallery, Store, About -->
                 <li><a href="index.html">Home</a></li>
                 <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="store.html">Store</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
@@ -30,12 +33,27 @@
         <section class="gallery-hero">
             <h1>Art Collection</h1>
             <p>Explore the unique handcrafted designs by John Bilowith.</p>
+            <!-- Added Note about Store -->
+            <p class="store-note"><em>Please visit our <a href="store.html" class="text-link">Online Store</a> to see full descriptions, pricing, and recent inventory.</em></p>
         </section>
 
         <!-- Masonry Gallery Container -->
         <div class="gallery-container" id="gallery-grid">
             <!-- Images injected via script.js -->
         </div>
+
+        <!-- Shop Promo Section (New) -->
+        <section class="shop-promo-section">
+            <div class="card shop-card" style="background-image: url('assets/images/gallery2.jpg'); margin-top: 40px;">
+                <div class="shop-content">
+                    <h3>Shop Online</h3>
+                    <p>Purchase original pieces and prints directly.</p>
+                    <a href="store.html" class="btn-gold">Go to Store</a>
+                </div>
+                <!-- Dark Overlay for readability -->
+                <div style="position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.4); z-index: 1;"></div>
+            </div>
+        </section>
 
         <!-- Lightbox Modal -->
         <div id="lightbox" class="lightbox">
@@ -54,7 +72,7 @@
             <a href="https://www.facebook.com/john.a.bilowith" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/johna.bilowith" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://www.youtube.com/@johnbilowith" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://x.com/jbilowith?s=11" target="_blank"><i class="fab fa-twitter"></i></a> <!-- X logo fallback to twitter icon usually works or use fa-x-twitter if available -->
+            <a href="https://x.com/jbilowith?s=11" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
     </footer>
 
