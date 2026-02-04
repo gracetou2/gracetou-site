@@ -68,7 +68,6 @@ a {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-soft);
-    /* aspect-ratio: 4/1; Removed to allow natural height if needed, or keep if banner is consistent */
     display: block;
 }
 
@@ -112,6 +111,18 @@ main {
     background-color: #f9f9f9;
     margin-bottom: 30px;
     border-radius: 8px;
+}
+
+/* --- Store Note (New) --- */
+.store-note {
+    font-size: 1.05rem;
+    color: var(--accent-teal);
+    margin-top: 15px;
+    font-style: italic;
+    background: rgba(74, 140, 148, 0.1); /* Light teal bg */
+    padding: 10px;
+    border-radius: 6px;
+    display: inline-block;
 }
 
 /* --- Masonry Gallery Grid --- */
