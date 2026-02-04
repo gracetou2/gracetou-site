@@ -1,71 +1,103 @@
-/* Reset and Base Styles */
+/* Luminous Watercolor Theme - Mobile First Bento Grid */
+
+:root {
+    /* Palette from research */
+    --bg-color: #faf9f6; /* Off-white / Watercolor paper */
+    --text-color: #333333;
+    --accent-teal: #4A8C94; /* Healing/Water */
+    --accent-gold: #D4AF37; /* Light/Hope */
+    --accent-gold-hover: #b5952f;
+    --dark-overlay: rgba(0, 0, 0, 0.6);
+    --card-bg: #ffffff;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.1);
+    
+    /* Fonts */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
-    color: #333;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+}
+
+/* App Shell Container */
+.app-shell {
+    max-width: 600px; /* Limits width for "App" feel on desktop */
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    box-shadow: 0 0 50px rgba(0,0,0,0.05);
 }
 
 /* Header */
-header {
-    background: #000;
-    color: #cda45e;
+.main-header, header {
     text-align: center;
-    padding: 10px 0;
+    padding: 1rem 1rem 1.5rem; /* Reduced top padding */
+    background: #fff;
 }
 
+/* --- LOGO FIX: Applies to both pages --- */
 .logo-container {
-    padding: 10px;
-}
-
-.banner-logo {
-    max-width: 100%;
-    height: auto;
-    max-height: 150px; /* Adjust based on your banner preference */
+    width: 100%; 
+    max-width: 500px; 
+    margin: 0 auto 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    /* aspect-ratio: 4/1; Removed to allow natural height if needed, or keep if banner is consistent */
     display: block;
-    margin: 0 auto;
 }
 
-/* Navigation */
+.site-logo, .banner-logo {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* Prevents zooming/cropping */
+}
+
+/* Navigation for Gallery Page */
 nav {
     background: #111;
     padding: 10px 0;
+    margin-bottom: 20px;
 }
-
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
 }
+nav ul li { margin: 0 15px; }
+nav ul li a { color: #cda45e; font-weight: 600; }
+nav ul li a:hover, nav ul li a.active { color: #fff; border-bottom: 2px solid #cda45e; }
 
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #cda45e;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-    color: #fff;
-    border-bottom: 2px solid #cda45e;
-}
-
-/* Main Content */
+/* Main Content Wrapper */
 main {
     flex: 1;
     max-width: 1200px;
@@ -74,8 +106,7 @@ main {
     width: 100%;
 }
 
-/* Hero Sections */
-.hero, .about-hero, .gallery-hero {
+.gallery-hero {
     text-align: center;
     padding: 40px 20px;
     background-color: #f9f9f9;
@@ -83,59 +114,29 @@ main {
     border-radius: 8px;
 }
 
-.hero h1, .about-hero h1, .gallery-hero h1 {
-    font-size: 2.5rem;
-    color: #222;
-    margin-bottom: 10px;
-}
-
-/* Buttons */
-.cta-button {
-    display: inline-block;
-    background: #cda45e;
-    color: #000;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-top: 15px;
-    transition: background 0.3s;
-}
-
-.cta-button:hover {
-    background: #e0b66e;
-}
-
 /* --- Masonry Gallery Grid --- */
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 200px; /* Base row height */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-auto-rows: 180px; 
     grid-gap: 15px;
     padding-bottom: 50px;
-    grid-auto-flow: dense; /* Helps fill gaps */
+    grid-auto-flow: dense; 
 }
 
-/* Make some items span differently for "masonry" feel if images were different aspect ratios 
-   (Since we are forcing square/cover for uniformity, this is a clean grid. 
-    To do true masonry with varying heights, we'd need JS or column-count CSS) */
 .gallery-item {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     cursor: pointer;
     transition: transform 0.3s ease;
-    height: 100%; /* Fill the grid cell */
+    height: 100%; 
 }
-
-.gallery-item:hover {
-    transform: scale(1.02);
-}
-
+.gallery-item:hover { transform: scale(1.02); }
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures neat square/rect tiles */
+    object-fit: cover; 
     display: block;
 }
 
@@ -143,7 +144,7 @@ main {
 .lightbox {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 2000;
     padding-top: 60px;
     left: 0;
     top: 0;
@@ -152,7 +153,6 @@ main {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.9);
 }
-
 .lightbox-content {
     margin: auto;
     display: block;
@@ -162,7 +162,6 @@ main {
     object-fit: contain;
     border-radius: 4px;
 }
-
 .caption {
     margin: auto;
     display: block;
@@ -171,9 +170,8 @@ main {
     text-align: center;
     color: #ccc;
     padding: 10px 0;
-    height: 150px;
+    height: 50px;
 }
-
 .close-btn {
     position: absolute;
     top: 15px;
@@ -181,17 +179,8 @@ main {
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
-    transition: 0.3s;
     cursor: pointer;
 }
-
-.close-btn:hover,
-.close-btn:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -202,53 +191,159 @@ main {
     color: white;
     font-weight: bold;
     font-size: 20px;
-    transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
     background-color: rgba(0,0,0,0.4);
 }
+.next { right: 0; border-radius: 3px 0 0 3px; }
+.prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
 
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-}
-
-/* Footer */
+/* --- Footer --- */
 footer {
-    background: #111;
-    color: #888;
     text-align: center;
-    padding: 20px 0;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: #888;
+    background: #f0f0f0;
     margin-top: auto;
 }
-
-.social-links {
-    margin-top: 10px;
-}
-
 .social-links a {
     color: #cda45e;
     margin: 0 10px;
     font-size: 1.5rem;
-    transition: color 0.3s;
 }
 
-.social-links a:hover {
+/* Tagline & Verse Ref (Index Page) */
+.tagline {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.verse-ref {
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--accent-teal);
+    display: block;
+    margin-top: 0.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Bento Grid Layout (Index Page) */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+}
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.hero-card { grid-column: span 2; padding: 0; aspect-ratio: 16/10; background: #000; }
+.welcome-card { grid-column: span 2; text-align: center; border-left: 5px solid var(--accent-gold); }
+.text-link { color: var(--accent-teal); font-weight: 700; margin-top: 0.5rem; display: inline-block; }
+.shop-card {
+    grid-column: span 2;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    aspect-ratio: 2/1;
+    align-items: center;
+}
+.shop-content { position: relative; z-index: 2; }
+.btn-gold {
+    background-color: var(--accent-gold);
     color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+.btn-gold:hover { background-color: var(--accent-gold-hover); }
+.events-card { grid-column: span 2; border-top: 4px solid var(--accent-teal); }
+.event-item {
+    background: #f4f4f4;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.event-date { font-weight: 700; color: var(--accent-teal); }
+.small-text { font-size: 0.8rem; color: #777; margin-top: 0.5rem; }
+.social-card {
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #555;
+}
+.social-card .icon { font-size: 1.5rem; margin-bottom: 0.5rem; display: block; }
+.facebook .icon { color: #1877F2; }
+.youtube .icon { color: #FF0000; }
+.instagram .icon { color: #E4405F; }
+.x-social .icon { color: #000; }
+.tiktok .icon { color: #000; text-shadow: 2px 2px 0px rgba(255,0,50,0.5), -2px -2px 0px rgba(0,255,255,0.5);}
 
-/* Responsive */
-@media (max-width: 768px) {
-    .gallery-container {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        grid-auto-rows: 150px;
-    }
-    
-    .lightbox-content {
-        width: 100%;
+/* Carousel Styles */
+.carousel { position: relative; height: 100%; width: 100%; }
+.carousel-track-container { height: 100%; width: 100%; position: relative; overflow: hidden; }
+.carousel-track { padding: 0; margin: 0; list-style: none; position: relative; height: 100%; transition: transform 250ms ease-in; }
+.carousel-slide { position: absolute; top: 0; bottom: 0; width: 100%; }
+.carousel-image { width: 100%; height: 100%; object-fit: cover; }
+.carousel-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white; padding: 2rem 1.5rem 1rem;
+}
+.carousel-caption h3 { margin-bottom: 0.2rem; font-size: 1.4rem; }
+.carousel-caption p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
+.carousel-button {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.7); border: 0; width: 30px; height: 30px;
+    border-radius: 50%; cursor: pointer; z-index: 10; color: #333; font-weight: bold;
+}
+.carousel-button--left { left: 10px; }
+.carousel-button--right { right: 10px; }
+.is-hidden { display: none; }
+.carousel-nav {
+    display: flex; justify-content: center; padding: 10px 0;
+    position: absolute; bottom: 10px; right: 15px; z-index: 10;
+}
+.carousel-indicator {
+    border: 0; border-radius: 50%; width: 8px; height: 8px;
+    background: rgba(255,255,255,0.5); margin: 0 4px; cursor: pointer;
+}
+.carousel-indicator.current-slide { background: var(--accent-gold); }
+
+/* Responsive tweaks */
+@media (min-width: 600px) {
+    .app-shell {
+        margin: 2rem auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     }
 }
